@@ -12,9 +12,9 @@
 			background-color:#e4e4e4;
 		}
 		.header{
-			height:200px;
+			height:50px;
 			width:100%;
-			background-color:#87CEFA;
+			/* background-color:#87CEFA; */
 			display:flex;
 			flex-direction:row;
 			margin:0;
@@ -466,16 +466,6 @@
 </head>
 <body>
 	<div id="tou" class="header" >
-		<div id="left" class="headerleft">
-			<img src="image/drg.png"   />
-		</div>
-		<div id="right" class="headerright">
-			<img class="rightpic" src="image/right.png"   />
-		</div>
-	</div>
-	<div class="taiyang">
-	
-	</div>
 	<div id="neirong" class="content">
 		<div class="daohang">
 			<div class="daohangzhanwei"></div>
@@ -492,9 +482,9 @@
 			<div id="ICD" class="daohangitem" onclick="xianshi('ICD')">
 				ICD编码查询
 			</div>
-			<div id="daoshi" class="daohangitem" onclick="xianshi('daoshi')">
+			<!-- <div id="daoshi" class="daohangitem" onclick="xianshi('daoshi')">
 				CHS-DRG1.1导视
-			</div>
+			</div> -->
 
 		</div>
 		<div class="result">
@@ -600,7 +590,7 @@
 					</div>
 				</div>
 				
-				<div id="jieguo6" class="jieguojieguo" style="display:none;">
+				<!-- <div id="jieguo6" class="jieguojieguo" style="display:none;">
 					<div class="j6main">
 						<div class="j6title">
 							CHS-DRG 1.1共分为26个主要诊断大类（MDC）,分为376个核心疾病诊断相关组（ADRG），其中外科手术组166个、非手术操作组24个，内科组186个。包括628个疾病诊断相关分组，其中235个外科手术操作组，34个非手术室操作组及359个内科诊断组。
@@ -610,7 +600,7 @@
 						</div>
 					</div>
 
-				</div>
+				</div> -->
 			</div>
 			<div class="resultzhanwei"></div>
 		</div>
@@ -626,17 +616,14 @@
 		jg.style.width=(width-360)+"px";
 		var jgy=document.getElementById("jieguojieguoyou");
 		jgy.style.width=(width-1260)+"px";
-		
-		var ddd=document.getElementById("ddd");
-		ddd.style.width=(width-360)*0.8+"px";
-		ddd.style.height=(width-360)*12+"px";
+	
 		
 		var lb=document.getElementById("liebiao");
 		var jb=document.getElementById("jibing");
 
 		var bfz=document.getElementById("bingfazheng");
 		var icd=document.getElementById("ICD");
-		var ds=document.getElementById("daoshi");
+
 
 				
 		var j1=document.getElementById("jieguo1");
@@ -947,7 +934,7 @@
 
 				bfz.style.backgroundColor="#1E90FF";
 				icd.style.backgroundColor="#1E90FF";
-				ds.style.backgroundColor="#1E90FF";
+				// ds.style.backgroundColor="#1E90FF";
 
 				//显示疾病页
 				j2.style.display="flex";
@@ -964,7 +951,7 @@
 		
 				bfz.style.backgroundColor="#1E90FF";
 				icd.style.backgroundColor="#1E90FF";
-				ds.style.backgroundColor="#1E90FF";
+				// ds.style.backgroundColor="#1E90FF";
 	
 				//显示列表页
 				j1.style.display="flex";
@@ -982,7 +969,7 @@
 
 				bfz.style.backgroundColor="#FFC125";
 				icd.style.backgroundColor="#1E90FF";
-				ds.style.backgroundColor="#1E90FF";
+				// ds.style.backgroundColor="#1E90FF";
 				//显示并发症页
 				j4.style.display="flex";
 				j1.style.display="none";
@@ -998,7 +985,7 @@
 
 				bfz.style.backgroundColor="#1E90FF";
 				icd.style.backgroundColor="#FFC125";
-				ds.style.backgroundColor="#1E90FF";
+				// ds.style.backgroundColor="#1E90FF";
 		
 				//显示ICD页
 				j5.style.display="flex";
@@ -1014,7 +1001,7 @@
 				jb.style.backgroundColor="#1E90FF";
 
 				bfz.style.backgroundColor="#1E90FF";
-				ds.style.backgroundColor="#FFC125";
+				// ds.style.backgroundColor="#FFC125";
 				icd.style.backgroundColor="#1E90FF";
 		
 				//显示导视页
