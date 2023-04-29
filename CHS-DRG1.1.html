@@ -1,0 +1,1033 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>DRGs入组平台</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" >  
+    <style type="text/css">
+		body{
+			height:100%;
+			width:100%;
+			margin:0;
+			background-color:#e4e4e4;
+		}
+		.header{
+			height:200px;
+			width:100%;
+			background-color:#87CEFA;
+			display:flex;
+			flex-direction:row;
+			margin:0;
+		}
+
+		.headerleft,.headerright{
+			height:200px;
+			width:50%;
+			display:flex;
+			flex-direction:row;
+			align-items:center;
+			justify-content:center;
+		}
+		img{
+			display:block
+		}
+		.rightpic{
+			height:200px;
+			width:100%;
+		}
+		.content{
+
+			width:100%;
+			
+			margin:0;
+		}
+		.daohang{
+			height:45px;
+			width:100%;
+			display:flex;
+			flex-direction:row;
+			background-color:#1E90FF;
+		}
+		.daohangzhanwei{
+			width:180px;
+			height:45px;
+		}
+		.daohangitem{
+			height:45px;
+			line-height:45px;
+			color:#ffffff;
+			font-weight:700;
+			padding:0 20px 0 20px;	
+		}
+		.result{
+			width:100%;
+
+			display:flex;
+			flex-direction:row;
+		}
+		.resultzhanwei{
+			width:180px;
+
+
+		}
+		.jieguo{
+			display:flex;
+			flex-direction:row;
+		}
+		.jieguojieguo{
+			
+			width:100%;
+			height:480px;
+			display:flex;
+			flex-direction:row;
+			background-color:#ffffff;
+			
+		}
+		
+		.liebiaozuo{
+			width:30%;
+			height:480px;
+			overflow-y: scroll;
+		}
+		.MDCdiv{
+			background-color:#00BFFF;
+			border-bottom:2px solid #ffffff;
+			color:#ffffff;
+			padding:10px 10px 10px 10px ;
+		}
+		.ADRGs{
+			display:none;
+		}
+		.ADRGdiv{
+			background-color:#ffffff;
+			color:black;
+			border-bottom:1px solid red;
+			padding:10px 5px 5px 20px ;
+		}
+		.liebiaoyou{
+			height:480px;
+			width:70%;	
+			overflow-y: scroll;	
+			background-color:#ffffff;
+			
+		}
+		.taiyang{
+			width:50px;
+			height: 50px;
+			border-radius:100% ;
+			background: #FFE100;
+			position: absolute;
+			top:60px;
+			left: 0px;
+			box-shadow: 0 0 20px #FA940A, 0 0 50px #FF0000;
+			-webkit-animation:movie 10s linear infinite;/*动画名称 播放时间 播放动画的方式 动画播放次数*/
+		}
+		@-webkit-keyframes movie {
+			0%{
+			margin-left: 0px;
+			margin-top:40px;
+			}
+			10%{
+			margin-left: 70px;
+			margin-top: 0px;
+			}
+			20%{
+			margin-left: 140px;
+			margin-top: -40px;
+			}
+			30%{
+			margin-left: 210px;
+			margin-top: -80px;
+			}
+			40%{
+			margin-left: 280px;
+			margin-top: -100px;
+			}
+			50%{
+			margin-left: 350px;
+			margin-top: -110px;
+			}
+			60%{
+			margin-left: 420px;
+			margin-top: -100px;
+			}
+			70%{
+			margin-left: 490px;
+			margin-top: -80px;
+			}
+			80%{
+			margin-left: 560px;
+			margin-top: -40px;
+			}
+			90%{
+			margin-left: 630px;
+			margin-top: 0px;
+			}
+			100%{
+			margin-left: 700px;
+			margin-top: 60px;
+			}
+		}
+		#title{
+			width:100%;
+			height:50px;
+			line-height:50px;
+			background-color:#008B45;
+			text-align:center;
+			color:#ffffff;
+			font-size:large;
+			font-weight:700;
+		}
+		#xifenzu{
+			width:100%;
+		}
+		.xifenzutitle{
+			font-weight:700;
+			border-bottom:1px solid red;
+			background-color:#e4e4e4;
+			text-indent:1em;
+			padding:5px 0 5px 0;
+		}
+		.jibinglisttitle,.shoushulisttitle{
+			font-weight:700;
+			border-bottom:1px solid red;
+			background-color:#F4A460;
+			text-indent:1em;
+			padding:5px 0 5px 0;		
+		}
+		.xifenzuitem{
+			width:100%;
+			height:20px;
+			border-bottom:1px solid red;
+			text-indent:2em;
+			padding:5px 0 5px 0;
+		}
+		.xifenzuitem2{
+			width:100%;
+			height:20px;
+			border-bottom:1px solid red;
+			text-indent:4em;
+			padding:5px 0 5px 0;
+			color:blue;
+			font-weight:600;
+		}
+		
+		.jibinglistitem,.shoushulistitem{
+			width:100%;
+			height:20px;
+			border-bottom:1px solid red;
+			text-indent:2em;
+			padding:5px 0 5px 0;
+			background-color:#F5DEB3;			
+		}
+		.jieguojieguozuo{
+			height:480px;
+			width:900px;
+			display:flex;
+			flex-direction:column;
+
+		}
+		.ICDchanxunkuang{
+			height:100px;
+			width:900px;
+			display:flex;
+			flex-direction:row;
+			align-items:center;
+			justify-content:center;
+			background-color:#00CD66;
+		}
+		.xuanze{
+			height:30px;
+			background-color:#1E90FF;
+			color:#ffffff;
+			
+		}
+		#xuanze{
+			height:30px;
+			width:90px;
+		}
+		.shuru{
+			height:30px;
+		}
+		#shuru{
+			height:24px;
+			width:300px;
+		}
+		.tijiao{
+			height:30px;
+			line-height:30px;
+			width:120px;
+			background-color:#1E90FF;
+			color:#ffffff;
+			text-align:center;
+		}
+		.ICDchanxunjieguo{
+			height:380px;
+			width:900px;
+			overflow-y: scroll;		
+			background-color:#ffffff;
+		}
+		.chaxunjieguoitem{
+			padding:10px 10px 10px 10px;
+			font-weight:700;
+		}
+		.chaxunjieguoitem2{
+			padding:10px 10px 10px 10px;
+			background-color:#EEDC82;
+			color:#0000FF;
+			border-bottom:1px solid red;
+		}
+		.chaxunjieguoitem21{
+			padding:10px 10px 10px 10px;
+			background-color:#EEDC82;
+			color:red;
+			border-bottom:1px solid red;
+		}
+		.jieguojieguoyou{
+			height:480px;
+			background-color:#ffffff;
+
+		}
+		.tishititle{
+			background-color:#00CD66;
+			color:red;
+			font-weight:700;
+			padding:10px 10px 10px 10px;
+		}
+		.tishiitem{
+			tex-indent:1em;
+			padding:5px 10px 5px 10px;
+		}
+		.ruzuchaxun{
+			width:100%;
+			height:480px;
+			display:flex;
+			flex-direction:column;			
+		}
+		.ruzuchaxunkuang{
+			width:100%;
+			height:100px;
+			background-color:#00CD66;
+			display:flex;
+			flex-direction:row;	
+			align-items:center;
+			justify-content:center;
+
+		}
+		.rztitle{
+			height:30px;
+			line-height:30px;
+			font-weight:700;
+			width:150px;
+			text-align:center;
+		}
+		#rzshuru,#zzdshuru,#bfzshuru1,#bfzshuru2{
+			height:24px;
+			width:300px;			
+		}
+		.rztijiao{
+			height:30px;
+			line-height:30px;
+			width:120px;
+			background-color:#1E90FF;
+			color:#ffffff;
+			font-weight:500;
+			text-align:center;
+		}
+		.ruzuchaxunjieguo{
+			width:100%;
+			height:380px;
+			background-color:#ffffff;
+		
+		}
+		.fenzuitem{
+			padding:10px 10px 10px 20px;
+			border-bottom:2px solid red;
+		}
+		.fenzuitempic{
+			width:100%;
+			height:100px;
+			display:flex;
+			flex-direction:row;	
+			align-items:center;
+			justify-content:center;
+			margin-top:20px;
+		}
+		.zzditem1{
+			width:100%;
+			text-align:center;
+			padding:10px 10px 10px 20px;
+			color:red;
+			margin-top:20px;
+		}
+		.zzditem2{
+			padding:10px 10px 10px 20px;
+			color:green;
+			width:100%;
+			text-align:center;
+			margin-top:20px;
+		}
+		.ruzuchaxunkuang2{
+			width:100%;
+			height:40px;
+			background-color:#00CD66;
+			display:flex;
+			flex-direction:row;	
+			align-items:center;
+			justify-content:center;
+
+		}
+		
+		.bfzitem1{
+			width:100%;
+			text-align:center;
+			padding:10px 10px 10px 20px;
+			color:gray;
+			margin-top:20px;
+		}
+		.bfzitem2{
+			width:100%;
+			text-align:center;
+			padding:10px 10px 10px 20px;
+			color:blue;
+			margin-top:20px;
+		}
+		.bfzitem3{
+			width:100%;
+			text-align:center;
+			padding:10px 10px 10px 20px;
+			color:#FF4500;
+			margin-top:20px;
+		}
+		.qitaneirong{
+			height:480px;
+			width:100%;
+			border:1px solid red ;
+			display:flex;
+			flex-direction:row;	
+			flex-wrap:wrap ;
+
+			
+		}
+		.qitaitem,.qitaitempic,.qitaitemtext{
+			
+			display:flex;
+			flex-direction:column;
+			align-items:center;
+			justify-content:center;
+			
+		}
+		.qitaitem{
+			width:200px;
+			height:200px;
+			margin:20px 20px 20px 20px;
+		}
+		.qitaitemtext{
+			margin-top:10px;
+			color:#ffffff;
+			font-weight:600;
+			
+		}
+		.j6main{
+			display:flex;
+			flex-direction:column;
+			justify-content:center;
+			align-items:center;
+			width:100%;
+			height:480px;
+			border:solid red 1px;
+		}
+		.j6title{
+	
+			height:100px;
+			background-color:#00CD66;
+			display:flex;
+			flex-direction:row;	
+			align-items:center;
+			justify-content:center;
+	
+			font-weight:600;
+			text-indent:2rem;
+			padding:0 50px 0 50px;
+			
+		}
+		.j6content{
+			overflow-y:scroll;;
+			display:flex;
+			flex-direction:row;	
+			width:80%;
+			height:380px;
+			border:solid red 1px;
+		}
+
+
+    </style>
+</head>
+<body>
+	<div id="tou" class="header" >
+		<div id="left" class="headerleft">
+			<img src="image/drg.png"   />
+		</div>
+		<div id="right" class="headerright">
+			<img class="rightpic" src="image/right.png"   />
+		</div>
+	</div>
+	<div class="taiyang">
+	
+	</div>
+	<div id="neirong" class="content">
+		<div class="daohang">
+			<div class="daohangzhanwei"></div>
+			<div id="liebiao" class="daohangitem" style="background-color:#FFC125;" onclick="xianshi('liebiao')">
+				列表查询
+			</div>
+			<div id="jibing" class="daohangitem" onclick="xianshi('jibing')">
+				疾病/手术入组查询
+			</div>
+
+			<div id="bingfazheng" class="daohangitem" onclick="xianshi('bingfazheng')">
+				严重/一般并发症查询
+			</div>
+			<div id="ICD" class="daohangitem" onclick="xianshi('ICD')">
+				ICD编码查询
+			</div>
+			<div id="daoshi" class="daohangitem" onclick="xianshi('daoshi')">
+				CHS-DRG1.1导视
+			</div>
+
+		</div>
+		<div class="result">
+			<div class="resultzhanwei"></div>
+			<div id="jieguo" class="jieguo">
+				<div id="jieguo1" class="jieguojieguo" style="display:flex;">
+					<div id="liebiaozuo" class="liebiaozuo">
+						
+					</div>
+					<div id="liebiaoyou" class="liebiaoyou">
+						<div id="title"></div>
+						<div id="xifenzu"></div>
+						<div id="list">
+							<div id="jibinglist"></div>
+							<div id="shoushulist"></div>
+						</div>
+					</div>
+				</div>
+				
+				<div id="jieguo2" class="jieguojieguo" style="display:none;">
+					<div class="ruzuchaxun">
+						<div class="ruzuchaxunkuang">
+							<div class="rztitle">
+								疾病/手术：
+							</div>							
+							<div class="rzshuru">
+								<input id="rzshuru" type="text" />
+							</div>
+							<div class="rztijiao" onclick="chaxun('rz')">
+								查询
+							</div>
+						</div>
+						<div  id="ruzuchaxunjieguo" class="ruzuchaxunjieguo">
+						
+						</div>
+					</div>
+
+				</div>
+				
+				
+				
+				<div id="jieguo4" class="jieguojieguo" style="display:none;">
+					<div class="ruzuchaxun">
+						<div>
+							<div class="ruzuchaxunkuang2">
+								<div class="rztitle">
+									主要疾病诊断：
+								</div>							
+								<div class="rzshuru">
+									<input id="bfzshuru1" type="text" />
+								</div>
+
+							</div>						
+							<div class="ruzuchaxunkuang2">
+								<div class="rztitle">
+									其他疾病诊断：
+								</div>							
+								<div class="rzshuru">
+									<input id="bfzshuru2" type="text" />
+								</div>
+
+							</div>
+							<div class="ruzuchaxunkuang2">
+								<div class="rztijiao" style="width:480px;" onclick="chaxun('bfz')">
+									查询
+								</div>
+							</div>						
+							
+						</div>
+
+						
+						<div  id="bfzchaxunjieguo" class="ruzuchaxunjieguo" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+						
+						</div>
+					</div>	
+				</div>
+				
+				
+				<div id="jieguo5" class="jieguojieguo" style="display:none;">
+					<div class="jieguojieguozuo">
+						<div class="ICDchanxunkuang">
+							<div class="xuanze">
+								<select id="xuanze">
+								  <option value="疾病">疾病编码</option>
+								  <option value="手术">手术操作</option>
+								</select>
+							</div>
+							<div class="shuru">
+								<input id="shuru" type="text" />
+							</div>
+							<div class="tijiao" onclick="chaxun('ICD')">
+								查询
+							</div>
+						</div>
+						<div id="ICDchanxunjieguo" class="ICDchanxunjieguo">
+							
+						</div>					
+					</div>	
+					<div id="jieguojieguoyou" class="jieguojieguoyou">
+						<div class="tishititle">温馨提示：</div>
+						<div class="tishiitem">1.疾病编码为国家临床版2.0；手术操作编码为国家临床版3.0</div>
+						<div class="tishiitem">2.对应的医保版编码为2.0.</div>
+					</div>
+				</div>
+				
+				<div id="jieguo6" class="jieguojieguo" style="display:none;">
+					<div class="j6main">
+						<div class="j6title">
+							CHS-DRG 1.1共分为26个主要诊断大类（MDC）,分为376个核心疾病诊断相关组（ADRG），其中外科手术组166个、非手术操作组24个，内科组186个。包括628个疾病诊断相关分组，其中235个外科手术操作组，34个非手术室操作组及359个内科诊断组。
+						</div>
+						<div class="j6content">
+							<img id="ddd" mode="" style="width:100%;" src="image/daoshi.png"   />
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="resultzhanwei"></div>
+		</div>
+	</div>
+    <!-- inline scripts related to this page -->
+	<script type="text/javascript" src="js/shuju.js"></script>
+	<script type="text/javascript" src="js/shuju2.js"></script>
+    <script type="text/javascript">
+		//获取屏幕宽度
+		var width=document.body.offsetWidth;
+		//设置结果显示在中央
+		var jg=document.getElementById("jieguo");
+		jg.style.width=(width-360)+"px";
+		var jgy=document.getElementById("jieguojieguoyou");
+		jgy.style.width=(width-1260)+"px";
+		
+		var ddd=document.getElementById("ddd");
+		ddd.style.width=(width-360)*0.8+"px";
+		ddd.style.height=(width-360)*12+"px";
+		
+		var lb=document.getElementById("liebiao");
+		var jb=document.getElementById("jibing");
+
+		var bfz=document.getElementById("bingfazheng");
+		var icd=document.getElementById("ICD");
+		var ds=document.getElementById("daoshi");
+
+				
+		var j1=document.getElementById("jieguo1");
+		var j2=document.getElementById("jieguo2");
+		var j4=document.getElementById("jieguo4");
+		var j5=document.getElementById("jieguo5");	
+		var j6=document.getElementById("jieguo6");
+
+		
+		//获取数据
+		var sj=window.MDC;//ADRG数据
+		var sj2=window.DRGs;//细分组数据
+		var sj3=window.jibingfenzu;//疾病分组规则
+		var ss=window.duozhi;//同时包含两个手术的分组
+		var ss1=window.shoushufenzu1;//手术分组规则1
+		var ss2=window.shoushufenzu2;//手术分组规则2
+		var jibing=window.jibing;//临床2.0编码
+		var shoushu=window.shoushu;//临床3.0编码
+		var wxzzd=window.wxzzd;//无效主要诊断
+		var bfz2=window.bingfazheng;//并发症数据库
+		var pcb=window.paichubiao;//排除表数据库
+		
+		/*
+		var str="<div class='MDCdiv' onclick=\"xianshiADRG('"+sj[0].ADRGcode+"')\">"+sj[0].ADRGcode+"-"+sj[0].ADRGname+"</div><div class='ADRGs' id="+sj[0].ADRGcode+">";
+		for(var i=1;i<sj.length;i++){
+			if(sj[i].ADRGcode.length=='4'){
+				str=str+"</div><div class='MDCdiv' onclick=\"xianshiADRG('"+sj[i].ADRGcode+"')\">"+sj[i].ADRGcode+"-"+sj[i].ADRGname+"</div><div class='ADRGs' id="+sj[i].ADRGcode+">";
+			}
+			if(sj[i].ADRGcode.length==3){
+				str=str+"<div class='ADRGdiv' onclick=\"chaxunADRG('"+sj[i].ADRGcode+"')\">"+sj[i].ADRGcode+"-"+sj[i].ADRGname+"</div>";
+			}
+			
+		}
+		str=str+"</div>"
+		*/
+		var str="<div class='MDCdiv' onclick=\"xianshiADRG('"+sj[0].ADRGcode+"')\">"+sj[0].ADRGcode+"-"+sj[0].ADRGname+"</div><div class='ADRGs' id="+sj[0].ADRGcode+">";
+		for(var i=1;i<sj.length;i++){
+			if(sj[i].ADRGcode.length=='4'){
+				str=str+"</div><div class='MDCdiv' onclick=\"xianshiADRG('"+sj[i].ADRGcode+"')\">"+sj[i].ADRGcode+"-"+sj[i].ADRGname+"</div><div class='ADRGs' id="+sj[i].ADRGcode+">";
+			}
+			if(sj[i].ADRGcode.length==3){
+				str=str+"<div id="+sj[i].ADRGcode+" class='ADRGdiv' onclick=\"chaxunADRG('"+sj[i].ADRGcode+"')\">"+sj[i].ADRGcode+"-"+sj[i].ADRGname+"</div>";
+			}
+			
+		}
+		str=str+"</div>"
+		//alert(str)
+		var liebiaozuo=document.getElementById("liebiaozuo");
+		liebiaozuo.innerHTML=str;
+		
+
+		
+		function chaxun(str){
+			if(str=="ICD"){
+				//查询国家临床版编码
+				//确定疾病或手术
+				var xz=document.getElementById("xuanze").value;
+				var sr=document.getElementById("shuru").value;
+				var cxjg=document.getElementById("ICDchanxunjieguo");
+				var zfc="";
+				if(sr.length==0){
+					alert("请输入编码或名称！！！")
+				}else{
+					if(xz=="疾病"){
+						for(var i=0;i<jibing.length;i++){
+							if(jibing[i].code.indexOf(sr)!=-1||jibing[i].name.indexOf(sr)!=-1){
+								zfc=zfc+"<div class='chaxunjieguoitem'>临床版："+jibing[i].code+"-"+jibing[i].name+"</div>";
+								if(jibing[i].hm.length==0){
+									zfc=zfc+"<div class='chaxunjieguoitem2'>医保版："+jibing[i].ybcode+"-"+jibing[i].ybname+"</div>";
+								}else{
+									zfc=zfc+"<div class='chaxunjieguoitem21'>医保版："+jibing[i].ybcode+"-"+jibing[i].ybname+" ("+jibing[i].hm+") </div>";
+								}
+								
+							}
+						}
+						cxjg.innerHTML=zfc;
+					}
+					if(xz=="手术"){
+						for(var i=0;i<shoushu.length;i++){
+							if(shoushu[i].code.indexOf(sr)!=-1||shoushu[i].name.indexOf(sr)!=-1){
+								zfc=zfc+"<div class='chaxunjieguoitem'>临床版："+shoushu[i].code+"-"+shoushu[i].name+"</div>";
+								if(shoushu[i].hm.length==0){
+									zfc=zfc+"<div class='chaxunjieguoitem2'>医保版："+shoushu[i].ybcode+"-"+shoushu[i].ybname+"</div>";
+								
+								}else{
+									zfc=zfc+"<div class='chaxunjieguoitem21'>医保版："+shoushu[i].ybcode+"-"+shoushu[i].ybname+" ("+shoushu[i].hm+") </div>";
+								}
+								
+							}
+						}
+						cxjg.innerHTML=zfc;
+					}		
+				}				
+			}
+			
+			if(str=="rz"){
+				//alert("入组")
+				var sr=document.getElementById("rzshuru").value;
+				if(sr.length==0){
+					alert("请输入编码或名称！！！")
+				}else{
+					//查询分组规则
+					var fzhtml="";
+					var jj=[];
+					var num=0;
+					for(var i=0;i<ss1.length;i++){
+						if(ss1[i].shoushucode==sr||ss1[i].shoushuname==sr){
+							//fzhtml=fzhtml+"<div class='fenzuitem'>"+ss1[i].ADRGcode+"</div>";
+							jj[num]=ss1[i].ADRGcode;
+							num++;
+						}
+					}
+					for(var i=0;i<ss2.length;i++){
+						if(ss2[i].shoushucode==sr||ss2[i].shoushuname==sr){
+							//fzhtml=fzhtml+"<div class='fenzuitem'>\""+ss2[i].ADRGcode+"\"</div>";
+							jj[num]=ss2[i].ADRGcode;
+							num++;							
+						}
+					}
+					for(var i=0;i<sj3.length;i++){
+						if(sj3[i].jibingcode==sr||sj3[i].jibingname==sr){
+							//fzhtml=fzhtml+"<div class='fenzuitem'>\""+sj3[i].ADRGcode+"\"</div>";
+							jj[num]=sj3[i].ADRGcode;
+							num++;							
+						}
+					}
+					//alert(jj)
+					if(jj.length==0){
+						fzhtml="无分组记录！"
+					}else{
+						for(var j=0;j<jj.length;j++){
+							for(var x=0;x<sj.length;x++){
+								if(sj[x].ADRGcode==jj[j]){
+									jj[j]=jj[j]+"-"+sj[x].ADRGname
+								}
+							}
+						}
+						
+						for(var j=0;j<jj.length;j++){
+							fzhtml=fzhtml+"<div class='fenzuitem'>"+jj[j]+"</div>";
+						}	
+
+					}
+
+					var rzjg=document.getElementById("ruzuchaxunjieguo");
+					rzjg.innerHTML=fzhtml;
+				}
+			}
+
+
+			
+			if(str=="bfz"){
+				var sr1=document.getElementById("bfzshuru1").value;
+				var sr2=document.getElementById("bfzshuru2").value;
+				//alert(sr1+":"+sr2)
+				if(sr1.length==0){
+					alert("请输入主要疾病诊断编码或名称！！！")
+				}else{
+					if(sr2.length==0){
+						alert("请输入其他疾病诊断编码或名称！！！")
+					}else{
+						//判断是不是并发症
+						var bfztype="";
+						var pcbtext="";
+						for(var i=0;i<bfz2.length;i++){
+							if(bfz2[i].code==sr2||bfz2[i].name==sr2){
+								bfztype=bfz2[i].type;
+								pcbtext=bfz2[i].exclude;
+								//alert(bfztype)
+							}
+						}
+						//alert(bfz2.length)
+						for(var i=0;i<pcb.length;i++){
+							if(pcb[i].biaoge==pcbtext&&(pcb[i].code==sr1||pcb[i].name==sr1)){
+								bfztype="";
+							}
+							
+						}
+						var bfzhtml="";
+						var bfzjg=document.getElementById("bfzchaxunjieguo");
+						if(bfztype==""){
+							//alert("不是并发症")
+							bfzhtml=bfzhtml+"<div class='fenzuitempic'><img src='image/00.png'></div><div class='bfzitem1'>【"+sr2+"】不是【"+sr1+"】的并发症！！！</div>"
+						}
+						if(bfztype=="CC"){
+							//alert("是一般并发症")
+							bfzhtml=bfzhtml+"<div class='fenzuitempic'><img src='image/CC.png'></div><div class='bfzitem2'>【"+sr2+"】是【"+sr1+"】的一般并发症！！！</div>"
+						}
+						if(bfztype=="MCC"){
+							//alert("是严重并发症")
+							bfzhtml=bfzhtml+"<div class='fenzuitempic'><img src='image/MCC.png'></div><div class='bfzitem3'>【"+sr2+"】是【"+sr1+"】的严重并发症！！！</div>"
+						}
+						bfzjg.innerHTML=bfzhtml;
+						
+					}
+				}
+			}
+			
+		};
+		
+		function xianshiADRG(str){
+			
+			var bj=document.getElementById(str);
+			if(bj.style.display=="block"){
+				bj.style.display="none";
+			}else{
+				bj.style.display="block";
+			}
+		}
+		function chaxunADRG(str){
+			//var xianshi=document.getElementById("liebiaoyou");
+			//xianshi.innerHTML=str;
+			//alert(str)
+			//ADRG名称显示
+			/*
+			var adrg=document.getElementById("title");
+			for(var i=0;i<sj.length;i++){
+				if(sj[i].ADRGcode==str){
+					adrg.innerHTML=str+"-"+sj[i].ADRGname;
+					//alert(str+"-"+sj[i].ADRGname);
+					break;
+				}
+			}
+			*/
+			
+			//改变颜色
+
+			
+			var aa=document.getElementsByClassName("ADRGdiv");
+			//alert(aa.length)
+			for(var i=0;i<aa.length;i++){
+				aa[i].style.backgroundColor="#ffffff";
+				aa[i].style.color="#000000";
+			}
+			var ii=document.getElementById(str);
+			ii.style.backgroundColor="#008B45";
+			ii.style.color="#ffffff";
+			
+			
+			var adrg=document.getElementById("title");
+			for(var i=0;i<sj.length;i++){
+				if(sj[i].ADRGcode==str){
+					adrg.innerHTML=str+"-"+sj[i].ADRGname;
+					//alert(str+"-"+sj[i].ADRGname);
+					break;
+				}
+			}
+			//细分组1.0显示
+			var xfz=document.getElementById("xifenzu");
+			var xfzhtml="<div class='xifenzutitle'>CHS-DRG细分组1.1（医保编码2.0）</div>";
+			for(var i=0;i<sj2.length;i++){
+				if(sj2[i].ADRGcode==str){
+					xfzhtml=xfzhtml+"<div class='xifenzuitem'>"+sj2[i].DRGcode+"-"+sj2[i].DRGname+"</div>";	
+					xfzhtml=xfzhtml+"<div class='xifenzuitem2'>权重值："+sj2[i].weight+" ；结算费用："+sj2[i].feiyong+"</div>";	
+				}
+			}
+			xfz.innerHTML=xfzhtml;
+			//疾病分组规则显示
+			var jblist=document.getElementById("jibinglist");
+			var jbhtml="<div class='jibinglisttitle'>包括以下主要疾病诊断：</div>"
+			for(var i=0;i<sj3.length;i++){
+				if(sj3[i].ADRGcode==str){
+					jbhtml=jbhtml+"<div class='jibinglistitem'>"+sj3[i].jibingcode+"-"+sj3[i].jibingname+"</div>"
+				}
+			}
+			if(jbhtml=="<div class='jibinglisttitle'>包括以下主要疾病诊断：</div>"){
+				jblist.innerHTML="";
+			}else{
+				jblist.innerHTML=jbhtml;
+			}
+			
+			//手术分组规则显示
+			var sslist=document.getElementById("shoushulist");
+			var sshtml="<div class='shoushulisttitle'>包括以下手术操作：</div>";
+			for(var i=0;i<ss1.length;i++){
+				if(ss1[i].ADRGcode==str){
+					sshtml=sshtml+"<div class='shoushulistitem'>"+ss1[i].shoushucode+"-"+ss1[i].shoushuname+"</div>";
+				}
+			}
+			var duozhi=0;
+			for(var i=0;i<ss.length;i++){
+				if(ss[i]==str){
+					duozhi=1;
+					break;
+				}
+			}
+			if(duozhi==1){
+				sshtml=sshtml+"<div class='shoushulisttitle'>同时包括以下手术操作：</div>";
+				for(var i=0;i<ss2.length;i++){
+					if(ss2[i].ADRGcode==str){
+						sshtml=sshtml+"<div class='shoushulistitem'>"+ss2[i].shoushucode+"-"+ss2[i].shoushuname+"</div>";
+					}
+				}
+			}
+			if(sshtml=="<div class='shoushulisttitle'>包括以下手术操作：</div>"){
+				sslist.innerHTML="";
+			}else{
+				sslist.innerHTML=sshtml;
+			}
+			
+			
+		}
+		
+		function xianshi(str){
+			if(str=="jibing"){
+				lb.style.backgroundColor="#1E90FF";
+				jb.style.backgroundColor="#FFC125";
+
+				bfz.style.backgroundColor="#1E90FF";
+				icd.style.backgroundColor="#1E90FF";
+				ds.style.backgroundColor="#1E90FF";
+
+				//显示疾病页
+				j2.style.display="flex";
+				j1.style.display="none";
+			
+				j4.style.display="none";
+				j5.style.display="none";
+				j6.style.display="none";
+				
+			}
+			if(str=="liebiao"){
+				lb.style.backgroundColor="#FFC125";
+				jb.style.backgroundColor="#1E90FF";
+		
+				bfz.style.backgroundColor="#1E90FF";
+				icd.style.backgroundColor="#1E90FF";
+				ds.style.backgroundColor="#1E90FF";
+	
+				//显示列表页
+				j1.style.display="flex";
+				j2.style.display="none";
+
+				j4.style.display="none";
+				j5.style.display="none";
+				j6.style.display="none";
+
+			}
+
+			if(str=="bingfazheng"){
+				lb.style.backgroundColor="#1E90FF";
+				jb.style.backgroundColor="#1E90FF";
+
+				bfz.style.backgroundColor="#FFC125";
+				icd.style.backgroundColor="#1E90FF";
+				ds.style.backgroundColor="#1E90FF";
+				//显示并发症页
+				j4.style.display="flex";
+				j1.style.display="none";
+	
+				j2.style.display="none";
+				j5.style.display="none";
+				j6.style.display="none";
+		
+			}
+			if(str=="ICD"){
+				lb.style.backgroundColor="#1E90FF";
+				jb.style.backgroundColor="#1E90FF";
+
+				bfz.style.backgroundColor="#1E90FF";
+				icd.style.backgroundColor="#FFC125";
+				ds.style.backgroundColor="#1E90FF";
+		
+				//显示ICD页
+				j5.style.display="flex";
+				j1.style.display="none";
+		
+				j4.style.display="none";
+				j2.style.display="none";
+				j6.style.display="none";
+
+			}
+			if(str=="daoshi"){
+				lb.style.backgroundColor="#1E90FF";
+				jb.style.backgroundColor="#1E90FF";
+
+				bfz.style.backgroundColor="#1E90FF";
+				ds.style.backgroundColor="#FFC125";
+				icd.style.backgroundColor="#1E90FF";
+		
+				//显示导视页
+				j5.style.display="none";
+				j1.style.display="none";
+		
+				j4.style.display="none";
+				j2.style.display="none";
+				j6.style.display="flex";
+
+			}
+
+			
+		}
+    </script>
+</body>
+</html>
